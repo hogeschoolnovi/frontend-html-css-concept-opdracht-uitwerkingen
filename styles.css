@@ -12,6 +12,7 @@
 
 * {
     margin: 0;
+    /*Dit is belangrijk zodat de breedtes en hoogtes van elementen worden berekend inclusief padding en margin*/
     box-sizing: border-box;
 }
 
@@ -158,8 +159,9 @@ button:hover {
 /* <----------------------------------------------- HEADER ---------------------------------------------------------->*/
 
 #header {
-    background: rgb(75, 73, 232);
-    background: linear-gradient(129deg, var(--primary-dark) 0%, var(--primary-dark) 26%, var(--primary)  100%);
+    background: var(--primary-dark);
+    /*Mocht een verouderde browser geen gradients ondersteunen, dan valt de browser terug op de "effen" achtergrondkleur hierboven*/
+    background: linear-gradient(129deg, var(--primary-dark) 0%, var(--primary-dark) 26%, var(--primary) 100%);
     text-align: center;
     color: white;
     padding: 30px 0;
@@ -227,6 +229,8 @@ button:hover {
     margin: 60px 0 0 0;
     position: absolute;
     bottom: 82px;
+    /*Hiermee zeggen we: plaats 'm horizontaal gezien op 50% van de breedte,
+    MAAR wel min de helft van de breedte van de afbeelding zelf (width: 78px) */
     left: calc(50% - 39px);
     background-image: url(./assets/squiggle_line_stripe.svg);
 }
@@ -440,8 +444,9 @@ button:hover {
 /* <----------------------------------------------- CONTACT --------------------------------------------------------->*/
 
 #contact {
-    background: rgb(75, 73, 232);
-    background: linear-gradient(129deg, var(--primary-dark) 0%, var(--primary-dark) 26%, var(--primary)  100%);
+    background: var(--primary-dark);
+    /*Mocht een verouderde browser geen gradients ondersteunen, dan valt de browser terug op de "effen" achtergrondkleur hierboven*/
+    background: linear-gradient(129deg, var(--primary-dark) 0%, var(--primary-dark) 26%, var(--primary) 100%);
     color: white;
     position: relative;
 }
@@ -514,6 +519,9 @@ button:hover {
 
 /* <----------------------------------------------- MEDIA QUERIES --------------------------------------------------->*/
 
+/*Omdat hier maar zo weinig media-queries nodig zijn is er gebruik gemaakt van een max-width query.*/
+/*Normaliter maak je altijd gebruik van min-width queries, waarbij de versie voor mobiel buiten de query staat, */
+/*en de versie voor desktop juist BUITEN de query*/
 @media screen and (max-width: 576px) {
     /*big headers*/
     h1, h2 {
