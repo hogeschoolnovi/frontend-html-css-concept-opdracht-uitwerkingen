@@ -1,0 +1,589 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Roboto:wght@300;400;700&display=swap');
+
+:root {
+    --primary: #5722CD;
+    --primary-dark: #4B49E8;
+    --secondary: #ED4385;
+    --text: #7A7A7A;
+    --text-dark: #0c0c0c;
+    --text-faded: #f2f0ff;
+    --grey: #F3F6F9;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Merriweather', serif;
+}
+
+/*big headers*/
+h1, h2 {
+    font-size: 46px;
+    padding: 16px 0;
+}
+
+/*titel onderaan*/
+h3 {
+    font-size: 36px;
+}
+
+/*project titles*/
+h4 {
+    font-size: 32px;
+    padding: 12px 0;
+    margin: 24px 0;
+}
+
+h4::after {
+    display: block;
+    content: '';
+    margin: 24px 0 0;
+    width: 57px;
+    height: 6px;
+    background-image: url(./assets/squiggle_line.svg);
+}
+
+/*service tiles*/
+h5 {
+    font-size: 32px;
+    padding: 12px 0;
+}
+
+/*hello section*/
+h6 {
+    font-size: 32px;
+    line-height: 1.5;
+    padding: 12px 0;
+}
+
+p {
+    margin: 12px 0;
+}
+
+a,
+a:visited,
+a:link {
+    text-decoration: none;
+    color: var(--primary);
+}
+
+button {
+    font-size: 14px;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+    background-color: var(--secondary);
+    border: none;
+    border-radius: 50px 50px 50px 50px;
+    box-shadow: 0 5px 8px 4px rgba(0, 0, 0, .2);
+    padding: 25px 40px;
+    margin: 16px 0;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+/* <----------------------------------------------- REUSABLES ------------------------------------------------------->*/
+
+.skewer {
+    display: block;
+    width: 130%;
+    height: 140px;
+    right: 0;
+    bottom: -46px;
+    position: absolute;
+    z-index: 2;
+    transform: rotate(2deg);
+}
+
+.skewer--white {
+    background-color: white;
+}
+
+.skewer--grey {
+    background-color: var(--grey);
+}
+
+.skewer--inverted {
+    left: 0;
+    top: -46px;
+}
+
+.outer-content-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /*voor de skew*/
+    overflow: hidden;
+}
+
+.inner-content-container {
+    flex-basis: 1400px;
+    flex-shrink: 1;
+    flex-grow: 0;
+    margin: 0 20px;
+}
+
+.inner-content-container--padding {
+    padding: 100px 0 300px 0;
+}
+
+.default-content-restrictor {
+    max-width: 850px;
+    width: 100%;
+    text-align: center;
+}
+
+.inner-content-container--column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* <----------------------------------------------- HEADER ---------------------------------------------------------->*/
+
+#header {
+    background: rgb(75, 73, 232);
+    background: linear-gradient(129deg, var(--primary-dark) 0%, var(--primary-dark) 26%, var(--primary)  100%);
+    text-align: center;
+    color: white;
+    padding: 30px 0;
+    position: relative;
+    z-index: 1;
+}
+
+/*Dit zorgt voor een textuur in de achtergrond*/
+#header::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+    z-index: -1;
+    background-image: url(assets/noise-texture.png);
+    background-position: top center;
+    background-size: auto;
+}
+
+.header-content__navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    /*zodat de navigatie de breedte van de pagina gebruikt, niet van de content*/
+    width: 100%;
+}
+
+.header-content__navigation ul {
+    list-style-type: none;
+    /*haal de standaard linker-padding van de lijst af*/
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    flex-basis: 400px;
+    flex-shrink: 1;
+    flex-grow: 0;
+    justify-content: space-between;
+}
+
+.header-content__navigation a {
+    color: white;
+    text-decoration: none;
+}
+
+.header-content__hero {
+    padding: 100px 0;
+}
+
+.header-content__hero p {
+    font-size: 28px;
+}
+
+.header-content__hero button {
+    margin: 20px 0 120px 0;
+}
+
+.header__squiggle {
+    display: block;
+    width: 78px;
+    height: 100px;
+    margin: 60px 0 0 0;
+    position: absolute;
+    bottom: 82px;
+    left: calc(50% - 39px);
+    background-image: url(./assets/squiggle_line_stripe.svg);
+}
+
+/* <----------------------------------------------- INTRO ----------------------------------------------------------->*/
+
+#intro {
+    background-color: white;
+    text-align: center;
+    color: var(--primary);
+    /*zodat het pseudo-element "hello" hierop gepositioneerd wordt*/
+    position: relative;
+    /*Zodat de content boven de "hello" staat*/
+    z-index: 2;
+}
+
+.intro-content {
+    padding: 100px 0 250px 0;
+}
+
+.intro-content p {
+    color: var(--text-dark);
+    font-weight: 500;
+    margin: 100px 0 0 0;
+}
+
+/*De letters HELLO achter de tekst*/
+.intro-content::before {
+    display: block;
+    content: 'hello';
+    color: var(--text-faded);
+    font-size: 550px;
+    opacity: 0.6;
+    font-weight: 600;
+    left: 0;
+    top: -80px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    letter-spacing: -18px;
+    z-index: -1;
+}
+
+/* <----------------------------------------------- PROJECTS -------------------------------------------------------->*/
+
+#work {
+    background-color: var(--grey);
+    /*zodat het pseudo-element "work" hierop gepositioneerd wordt*/
+    position: relative;
+    /*Zodat de content boven de "work" staat*/
+    z-index: 2;
+}
+
+/*De letters WORK achter de artikelen*/
+#work::before {
+    display: block;
+    content: 'work';
+    color: white;
+    font-size: 550px;
+    font-weight: 600;
+    left: 0;
+    top: -120px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    letter-spacing: -18px;
+    z-index: -1;
+}
+
+.work-content {
+    padding: 200px 0;
+}
+
+.work-article {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 100px 0;
+}
+
+/*Draai de volgorde van de afbeelding en tekst om bij de 1e, 3e, etc.*/
+.work-article:nth-of-type(odd) {
+    flex-direction: row-reverse;
+}
+
+/*Behoud de normale volgorde van afbeelding en tekst bij de 2e, 4e, etc.*/
+.work-article:nth-of-type(even) {
+    flex-direction: row;
+}
+
+.work-article__image-wrapper {
+    /*De afbeelding moet in de basis 800px breed zijn...*/
+    flex-basis: 800px;
+    /*Als er meer ruimte is, mag hij NIET groter worden*/
+    flex-grow: 0;
+    /*Als er minder ruimte is, krimpt hij 1 fractie (dus alles) van de ingeleverde ruimte*/
+    flex-shrink: 1;
+}
+
+.work-article__image-wrapper img {
+    /*Om afbeeldingen goed mee te laten schalen, zet je de afbeelding zelf altijd op 100% breedte.
+    Zo past de afbeelding zich telkens aan, aan zijn omgeving*/
+    width: 100%;
+    box-shadow: 0 32px 28px -10px rgba(0, 0, 0, 0.22);
+}
+
+.work-article__info-container {
+    /*De content moet in de basis 480 breed zijn*/
+    flex-basis: 480px;
+    /*Als er meer ruimte is, mag hij NIET groter worden*/
+    flex-grow: 0;
+    /*Als er minder ruimte is, mag hij NIET kleiner worden*/
+    flex-shrink: 0;
+    padding: 0 50px 50px 50px;
+}
+
+.work-article__info-container p {
+    font-weight: 400;
+    margin: 50px 0;
+}
+
+.work-article__project-link {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.work-article__project-link::after {
+    display: inline-block;
+    content: '';
+    /*In de basis is het streepje 15 breed, maar dit veranderd bij hover*/
+    width: 15px;
+    height: 1px;
+    background-color: var(--primary);
+    margin: 0 0 4px 12px;
+    /*Zorg dat de overgang van kort naar lang streepje vloeiend verloopt*/
+    transition: all 0.2s ease-in-out;
+}
+
+.work-article__project-link:hover::after {
+    width: 55px;
+}
+
+/* <----------------------------------------------- SERVICES -------------------------------------------------------->*/
+
+#services {
+    background-color: white;
+    /*zodat het pseudo-element "work" hierop gepositioneerd wordt*/
+    position: relative;
+    /*Zodat de content boven de "work" staat*/
+    z-index: 2;
+}
+
+/*De letters SERVICES achter de tekst*/
+#services::before {
+    display: block;
+    content: 'services';
+    color: var(--text-faded);
+    font-size: 300px;
+    opacity: 0.6;
+    font-weight: 600;
+    left: 0;
+    top: -50px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    letter-spacing: -5px;
+    z-index: -1;
+}
+
+.services-content {
+    padding: 200px 0 100px 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+}
+
+.service-tile {
+    /*De tegel moet in de basis 480 breed zijn*/
+    flex-basis: 384px;
+    /*Als er meer ruimte is, mag hij NIET groter worden*/
+    flex-grow: 0;
+    /*Als er minder ruimte is, krimpt hij 1 fractie (dus alle tegels evenveel) van de ingeleverde ruimte*/
+    flex-shrink: 1;
+
+    /*Deze tegel is opzichzelf weer een flexbox*/
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 40px;
+    background-color: white;
+    border: 1px solid var(--primary);
+    box-shadow: 0 11px 16px 0 rgba(0, 0, 0, 0.1);
+    color: var(--text);
+    font-size: 16px;
+}
+
+.service-tile__title {
+    color: var(--primary);
+    font-size: 24px;
+}
+
+.service-tile__icon {
+    width: 80px;
+}
+
+/* <----------------------------------------------- CONTACT --------------------------------------------------------->*/
+
+#contact {
+    background: rgb(75, 73, 232);
+    background: linear-gradient(129deg, var(--primary-dark) 0%, var(--primary-dark) 26%, var(--primary)  100%);
+    color: white;
+    position: relative;
+}
+
+#contact::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+    z-index: 0;
+    background-image: url(assets/noise-texture.png);
+    background-position: top center;
+    background-size: auto;
+}
+
+.contact-content {
+    padding: 200px 0 50px 0;
+    z-index: 1;
+}
+
+.contact-content__form {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.contact-content__form input,
+.contact-content__form textarea {
+    background-color: #ffffff;
+    border: 1px solid var(--text);
+    border-radius: 4px;
+    font-family: 'Roboto', sans-serif;
+    padding: 20px;
+    display: block;
+    font-size: 16px;
+    color: var(--text);
+    width: 100%;
+}
+
+.contact-content__form input::placeholder,
+.contact-content__form textarea::placeholder {
+    /*Hier een speciale tekstkleur kiezen!!*/
+    color: var(--text);
+}
+
+.contact-content__form label {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 20px 0;
+}
+
+.contact-content__form button {
+    width: 200px;
+    align-self: center;
+}
+
+/* <----------------------------------------------- FOOTER ---------------------------------------------------------->*/
+
+#footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    height: 64px;
+    font-size: 14px;
+}
+
+/* <----------------------------------------------- MEDIA QUERIES --------------------------------------------------->*/
+
+@media screen and (max-width: 576px) {
+    /*big headers*/
+    h1, h2 {
+        font-size: 36px;
+        padding: 16px 0;
+    }
+
+    /*titel onderaan*/
+    h3 {
+        font-size: 26px;
+    }
+
+    /*intro section*/
+    h6 {
+        font-size: 22px;
+        line-height: 1.5;
+        padding: 12px 0;
+    }
+
+    .header-content__navigation {
+        justify-content: center;
+    }
+
+    .header-content__navigation a {
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .intro-content::before {
+        font-size: 200px;
+        top: 0;
+    }
+
+    .work-content {
+        padding: 100px 0;
+    }
+
+    .intro-content p {
+        margin: 50px 0 0 0;
+    }
+
+    .work-article:nth-of-type(odd),
+    .work-article:nth-of-type(even) {
+        flex-direction: column;
+        margin: 0;
+    }
+
+    .work-article__image-wrapper {
+        /*om de breedte, die nu geldt als lengte, te overschrijven*/
+        flex-basis: auto;
+    }
+
+    .work-article__info-container {
+        padding: 0 0 50px 0;
+        /*om de breedte, die nu geldt als lengte, te overschrijven*/
+        flex-basis: auto;
+    }
+
+    #work::before {
+        font-size: 200px;
+        top: -50px;
+    }
+
+    /*De letters SERVICES achter de tekst*/
+    #services::before {
+        font-size: 120px;
+        top: 0;
+    }
+
+    .services-content {
+        padding: 100px 0 50px 0;
+    }
+}
