@@ -1,0 +1,434 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Roboto:wght@300;400;700&display=swap');
+
+* {
+    margin: 0;
+    /*Dit is belangrijk zodat de breedtes en hoogtes van elementen worden berekend inclusief padding en margin*/
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Merriweather', serif;
+}
+
+/*big headers*/
+h1, h2 {
+    font-size: 46px;
+    padding: 16px 0;
+}
+
+/*titel onderaan*/
+h3 {
+    font-size: 36px;
+}
+
+/*project titles*/
+h4 {
+    font-size: 32px;
+    padding: 12px 0;
+    margin: 24px 0;
+}
+
+/*service tiles*/
+h5 {
+    font-size: 32px;
+    padding: 12px 0;
+}
+
+/*hello section*/
+h6 {
+    font-size: 32px;
+    line-height: 1.5;
+    padding: 12px 0;
+}
+
+p {
+    margin: 12px 0;
+}
+
+a,
+a:visited,
+a:link {
+    text-decoration: none;
+    color: #5722CD;
+}
+
+button {
+    font-size: 14px;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+    background-color: #ED4385;
+    border: none;
+    border-radius: 50px 50px 50px 50px;
+    box-shadow: 0 5px 8px 4px rgba(0, 0, 0, .2);
+    padding: 25px 40px;
+    margin: 16px 0;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+/* <----------------------------------------------- REUSABLES ------------------------------------------------------->*/
+
+.outer-content-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /*voor de skew*/
+    overflow: hidden;
+}
+
+.inner-content-container {
+    flex-basis: 1400px;
+    flex-shrink: 1;
+    flex-grow: 0;
+    margin: 0 20px;
+}
+
+.default-content-restrictor {
+    max-width: 850px;
+    width: 100%;
+    text-align: center;
+}
+
+.inner-content-container--column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* <----------------------------------------------- HEADER ---------------------------------------------------------->*/
+
+#header {
+    background: #4B49E8;
+    /*Mocht een verouderde browser geen gradients ondersteunen, dan valt de browser terug op de "effen" achtergrondkleur hierboven*/
+    background: linear-gradient(129deg, #4B49E8 0%, #4B49E8 26%, #5722CD  100%);
+    text-align: center;
+    color: white;
+    padding: 30px 0;
+    position: relative;
+}
+
+.header-content__navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    /*zodat de navigatie de breedte van de pagina gebruikt, niet van de content*/
+    width: 100%;
+}
+
+.header-content__navigation ul {
+    list-style-type: none;
+    /*haal de standaard linker-padding van de lijst af*/
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    flex-basis: 400px;
+    flex-shrink: 1;
+    flex-grow: 0;
+    justify-content: space-between;
+}
+
+.header-content__navigation a {
+    color: white;
+    text-decoration: none;
+}
+
+.header-content__hero {
+    padding: 100px 0;
+}
+
+.header-content__hero p {
+    font-size: 28px;
+}
+
+.header-content__hero button {
+    margin: 20px 0 120px 0;
+}
+
+.header__squiggle {
+    display: block;
+    width: 78px;
+    height: 100px;
+    margin: 60px 0 0 0;
+    position: absolute;
+    bottom: 0;
+    /*Hiermee zeggen we: plaats 'm horizontaal gezien op 50% van de breedte,
+    MAAR wel min de helft van de breedte van de afbeelding zelf (width: 78px) */
+    left: calc(50% - 39px);
+    background-image: url(./assets/squiggle_line_stripe.svg);
+}
+
+/* <----------------------------------------------- INTRO ----------------------------------------------------------->*/
+
+#intro {
+    background-color: white;
+    text-align: center;
+    color: #5722CD;
+}
+
+.intro-content {
+    padding: 100px 0;
+}
+
+.intro-content p {
+    color: #0c0c0c;
+    font-weight: 500;
+    margin: 100px 0 0 0;
+}
+
+/* <----------------------------------------------- PROJECTS -------------------------------------------------------->*/
+
+#work {
+    background-color: #F3F6F9;
+}
+
+.work-content {
+    padding: 100px 0;
+}
+
+.work-article {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 100px 0;
+}
+
+/*Draai de volgorde van de afbeelding en tekst om bij de 1e, 3e, etc.*/
+.work-article:nth-of-type(odd) {
+    flex-direction: row-reverse;
+}
+
+/*Behoud de normale volgorde van afbeelding en tekst bij de 2e, 4e, etc.*/
+.work-article:nth-of-type(even) {
+    flex-direction: row;
+}
+
+.work-article__image-wrapper {
+    /*De afbeelding moet in de basis 800px breed zijn...*/
+    flex-basis: 800px;
+    /*Als er meer ruimte is, mag hij NIET groter worden*/
+    flex-grow: 0;
+    /*Als er minder ruimte is, krimpt hij 1 fractie (dus alles) van de ingeleverde ruimte*/
+    flex-shrink: 1;
+}
+
+.work-article__image-wrapper img {
+    /*Om afbeeldingen goed mee te laten schalen, zet je de afbeelding zelf altijd op 100% breedte.
+    Zo past de afbeelding zich telkens aan, aan zijn omgeving*/
+    width: 100%;
+    box-shadow: 0 32px 28px -10px rgba(0, 0, 0, 0.22);
+}
+
+.work-article__info-container {
+    /*De content moet in de basis 480 breed zijn*/
+    flex-basis: 480px;
+    /*Als er meer ruimte is, mag hij NIET groter worden*/
+    flex-grow: 0;
+    /*Als er minder ruimte is, mag hij NIET kleiner worden*/
+    flex-shrink: 0;
+    padding: 0 50px 50px 50px;
+}
+
+.work-article__title-squiggle {
+    margin: 24px 0 0;
+    width: 57px;
+    height: 6px;
+    background-image: url(./assets/squiggle_line.svg);
+}
+
+.work-article__info-container p {
+    font-weight: 400;
+    margin: 50px 0;
+}
+
+.work-article__project-link {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* <----------------------------------------------- SERVICES -------------------------------------------------------->*/
+
+#services {
+    background-color: white;
+}
+
+.services-content {
+    padding: 100px 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+}
+
+.service-tile {
+    /*De tegel moet in de basis 480 breed zijn*/
+    flex-basis: 384px;
+    /*Als er meer ruimte is, mag hij NIET groter worden*/
+    flex-grow: 0;
+    /*Als er minder ruimte is, krimpt hij 1 fractie (dus alle tegels evenveel) van de ingeleverde ruimte*/
+    flex-shrink: 1;
+
+    /*Deze tegel is opzichzelf weer een flexbox*/
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 40px;
+    background-color: white;
+    border: 1px solid #5722CD;
+    box-shadow: 0 11px 16px 0 rgba(0, 0, 0, 0.1);
+    color: #7A7A7A;
+    font-size: 16px;
+}
+
+.service-tile__title {
+    color: #5722CD;
+    font-size: 24px;
+}
+
+.service-tile__icon {
+    width: 80px;
+}
+
+/* <----------------------------------------------- CONTACT --------------------------------------------------------->*/
+
+#contact {
+    background: #4B49E8;
+    /*Mocht een verouderde browser geen gradients ondersteunen, dan valt de browser terug op de "effen" achtergrondkleur hierboven*/
+    background: linear-gradient(129deg, #4B49E8 0%, #4B49E8 26%, #5722CD  100%);
+    color: white;
+    position: relative;
+}
+
+.contact-content {
+    padding: 100px 0 50px 0;
+}
+
+.contact-content__form {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.contact-content__form input,
+.contact-content__form textarea {
+    background-color: #ffffff;
+    border: 1px solid #7A7A7A;
+    border-radius: 4px;
+    font-family: 'Roboto', sans-serif;
+    padding: 20px;
+    display: block;
+    font-size: 16px;
+    color: #7A7A7A;
+    width: 100%;
+}
+
+.contact-content__form input::placeholder,
+.contact-content__form textarea::placeholder {
+    color: #7A7A7A;
+}
+
+.contact-content__form label {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 20px 0;
+}
+
+.contact-content__form button {
+    width: 200px;
+    align-self: center;
+}
+
+/* <----------------------------------------------- FOOTER ---------------------------------------------------------->*/
+
+#footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    height: 64px;
+    font-size: 14px;
+}
+
+/* <----------------------------------------------- MEDIA QUERIES --------------------------------------------------->*/
+
+/*Omdat hier maar zo weinig media-queries nodig zijn is er gebruik gemaakt van een max-width query.*/
+/*Normaliter maak je altijd gebruik van min-width queries, waarbij de versie voor mobiel buiten de query staat, */
+/*en de versie voor desktop juist BUITEN de query*/
+@media screen and (max-width: 576px) {
+    /*big headers*/
+    h1, h2 {
+        font-size: 36px;
+        padding: 16px 0;
+    }
+
+    /*titel onderaan*/
+    h3 {
+        font-size: 26px;
+    }
+
+    /*intro section*/
+    h6 {
+        font-size: 22px;
+        line-height: 1.5;
+        padding: 12px 0;
+    }
+
+    .header-content__navigation {
+        justify-content: center;
+    }
+
+    .header-content__navigation a {
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .intro-content::before {
+        font-size: 200px;
+        top: 0;
+    }
+
+    .work-content {
+        padding: 100px 0;
+    }
+
+    .intro-content p {
+        margin: 50px 0 0 0;
+    }
+
+    .work-article:nth-of-type(odd),
+    .work-article:nth-of-type(even) {
+        flex-direction: column;
+        margin: 0;
+    }
+
+    .work-article__image-wrapper {
+        /*om de breedte, die nu geldt als lengte, te overschrijven*/
+        flex-basis: auto;
+    }
+
+    .work-article__info-container {
+        padding: 0 0 50px 0;
+        /*om de breedte, die nu geldt als lengte, te overschrijven*/
+        flex-basis: auto;
+    }
+
+    .services-content {
+        padding: 100px 0 50px 0;
+    }
+}
