@@ -1,48 +1,63 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Roboto:wght@300;400;700&display=swap');
 
+/*////////////////////////
+    Table of Contents
+    1. Global Styles
+    2. Typography
+    3. Layout
+        3.1 Reusables
+        3.2 Other
+    4. Areas
+        4.1 Header
+        4.2 Introduction
+        4.3 Work
+        4.4 Services
+        4.5 Contact
+        4.6 Footer
+    5. Media Queries
+////////////////////////*/
+
+/* ------------------------------- 1. Global Styles -------------------------------- */
+
 * {
     margin: 0;
-    /*Dit is belangrijk zodat de breedtes en hoogtes van elementen worden berekend inclusief padding en margin*/
+    padding: 0;
+    /*Dit is belangrijk zodat de breedtes en hoogtes van elementen worden berekend INCLUSIEF padding en borders */
     box-sizing: border-box;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: Roboto, Arial, Helvetica, sans-serif;
     font-weight: 300;
     font-size: 20px;
-    display: flex;
-    flex-direction: column;
 }
+
+/* ------------------------------- 2. Typography ----------------------------------- */
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Merriweather', serif;
+    font-family: Merriweather, 'Times New Roman', serif;
 }
 
-/*big headers*/
 h1, h2 {
     font-size: 46px;
     padding: 16px 0;
 }
 
-/*titel onderaan*/
 h3 {
     font-size: 36px;
 }
 
-/*project titles*/
 h4 {
     font-size: 32px;
     padding: 12px 0;
     margin: 24px 0;
 }
 
-/*service tiles*/
 h5 {
     font-size: 32px;
     padding: 12px 0;
 }
 
-/*hello section*/
 h6 {
     font-size: 32px;
     line-height: 1.5;
@@ -52,6 +67,45 @@ h6 {
 p {
     margin: 12px 0;
 }
+
+/* ------------------------------- 3. Layout --------------------------------------- */
+
+/* --------------- 3.1 Reusables ----------------------- */
+
+/* De buitenste container is altijd de volledige schermbreedte. Het is een flexbox container die zijn inhoud altijd netjes horizontaal centreert */
+.outer-content-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+/*De binnenste container is maximaal 1400px breed, zodat het er ook goed uitziet op brede schermen.
+Hij mag krimpen als het scherm minder breed wordt, maar niet groeien als er meer ruimte is.*/
+.inner-content-container {
+    flex-basis: 1400px;
+    flex-shrink: 1;
+    flex-grow: 0;
+    /*We voegen margin toe aan de linker- en rechterkant, zodat de content nooit helemaal tegen de rand gedrukt kan worden*/
+    margin: 0 20px;
+    /*We zorgen er ook voor dat deze flex-item op haar beurt ook weer een flexbox container is, waarin alle children onder elkaar komen te staan*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*We gebruiken hier geen flex-basis property, omdat dit element soms in een parent met column-richting en soms in een parent met row-richting kan staan.
+In een column gaat flex-basis over de hoogte, niet de breedte. Dus om dan alsnog de breedte te veranderen, hebben we max-width (nooit groter dan dit) property nodig */
+.default-text-restrictor {
+    max-width: 850px;
+    text-align: center;
+}
+
+.default-area-padding {
+    padding: 100px 0;
+}
+
+/* --------------- 3.2 Other --------------------------- */
 
 a,
 a:visited,
@@ -68,54 +122,24 @@ button {
     color: white;
     background-color: #ED4385;
     border: none;
-    border-radius: 50px 50px 50px 50px;
+    border-radius: 50px;
     box-shadow: 0 5px 8px 4px rgba(0, 0, 0, .2);
     padding: 25px 40px;
-    margin: 16px 0;
+    margin: 28px 0;
 }
 
 button:hover {
     cursor: pointer;
 }
 
-/* <----------------------------------------------- REUSABLES ------------------------------------------------------->*/
+/* ------------------------------- 4. Areas ---------------------------------------- */
 
-.outer-content-container {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    /*voor de skew*/
-    overflow: hidden;
-}
-
-.inner-content-container {
-    flex-basis: 1400px;
-    flex-shrink: 1;
-    flex-grow: 0;
-    margin: 0 20px;
-}
-
-.default-content-restrictor {
-    max-width: 850px;
-    width: 100%;
-    text-align: center;
-}
-
-.inner-content-container--column {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* <----------------------------------------------- HEADER ---------------------------------------------------------->*/
+/* --------------- 4.1 Header ------------------------- */
 
 #header {
     background: #4B49E8;
     /*Mocht een verouderde browser geen gradients ondersteunen, dan valt de browser terug op de "effen" achtergrondkleur hierboven*/
     background: linear-gradient(129deg, #4B49E8 0%, #4B49E8 26%, #5722CD  100%);
-    text-align: center;
     color: white;
     padding: 30px 0;
     position: relative;
@@ -124,38 +148,32 @@ button:hover {
 .header-content__navigation {
     display: flex;
     flex-direction: row;
+    /*De <ul> die in de <nav> zit, wordt rechts (einde van de rij) uitgelijnd */
     justify-content: flex-end;
-    /*zodat de navigatie de breedte van de pagina gebruikt, niet van de content*/
+    /*De <nav> moet de beschikbare breedte van de pagina aannemen, anders valt er niks uit te lijnen aan de rechterkant */
     width: 100%;
 }
 
 .header-content__navigation ul {
-    list-style-type: none;
-    /*haal de standaard linker-padding van de lijst af*/
-    padding: 0;
-    display: flex;
-    flex-direction: row;
+    /*Om ervoor te zorgen dat de menu-items op normale afstand van elkaar staan, zorgen we dat de parent: <ul> minimaal 400px breed is*/
     flex-basis: 400px;
     flex-shrink: 1;
     flex-grow: 0;
+    list-style-type: none;
+    /*Dit flex-item is op haar beurt ook weer een flex-container, die de <li> die erin zitten netjes evenredig verdeelt*/
+    display: flex;
+    flex-direction: row;
     justify-content: space-between;
 }
 
 .header-content__navigation a {
     color: white;
-    text-decoration: none;
 }
 
 .header-content__hero {
     padding: 100px 0;
-}
-
-.header-content__hero p {
+    margin-bottom: 88px;
     font-size: 28px;
-}
-
-.header-content__hero button {
-    margin: 20px 0 120px 0;
 }
 
 .header__squiggle {
@@ -171,36 +189,28 @@ button:hover {
     background-image: url(./assets/squiggle_line_stripe.svg);
 }
 
-/* <----------------------------------------------- INTRO ----------------------------------------------------------->*/
+/* --------------- 4.2 Introduction ------------------- */
 
 #intro {
     background-color: white;
-    text-align: center;
     color: #5722CD;
 }
 
-.intro-content {
-    padding: 100px 0;
-}
-
-.intro-content p {
+.intro__link {
     color: #0c0c0c;
     font-weight: 500;
-    margin: 100px 0 0 0;
+    margin-top: 100px;
 }
 
-/* <----------------------------------------------- PROJECTS -------------------------------------------------------->*/
+/* --------------- 4.3 Work --------------------------- */
 
 #work {
     background-color: #F3F6F9;
 }
 
-.work-content {
-    padding: 100px 0;
-}
-
 .work-article {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     margin: 0 0 100px 0;
@@ -211,13 +221,8 @@ button:hover {
     flex-direction: row-reverse;
 }
 
-/*Behoud de normale volgorde van afbeelding en tekst bij de 2e, 4e, etc.*/
-.work-article:nth-of-type(even) {
-    flex-direction: row;
-}
-
 .work-article__image-wrapper {
-    /*De afbeelding moet in de basis 800px breed zijn...*/
+    /*De afbeelding-wrapper moet in de basis 800px breed zijn...*/
     flex-basis: 800px;
     /*Als er meer ruimte is, mag hij NIET groter worden*/
     flex-grow: 0;
@@ -226,7 +231,7 @@ button:hover {
 }
 
 .work-article__image-wrapper img {
-    /*Om afbeeldingen goed mee te laten schalen, zet je de afbeelding zelf altijd op 100% breedte.
+    /*Om afbeeldingen goed mee te laten schalen met de wrapper, zet je de afbeelding zelf altijd op 100% breedte.
     Zo past de afbeelding zich telkens aan, aan zijn omgeving*/
     width: 100%;
     box-shadow: 0 32px 28px -10px rgba(0, 0, 0, 0.22);
@@ -243,7 +248,7 @@ button:hover {
 }
 
 .work-article__title-squiggle {
-    margin: 24px 0 0;
+    margin-top: 24px;
     width: 57px;
     height: 6px;
     background-image: url(./assets/squiggle_line.svg);
@@ -261,19 +266,18 @@ button:hover {
     letter-spacing: 2px;
 }
 
-/* <----------------------------------------------- SERVICES -------------------------------------------------------->*/
+/* --------------- 4.4 Services------------------------ */
 
 #services {
     background-color: white;
 }
 
-.services-content {
-    padding: 100px 0;
+#services > div {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 40px;
-    justify-content: center;
 }
 
 .service-tile {
@@ -283,12 +287,9 @@ button:hover {
     flex-grow: 0;
     /*Als er minder ruimte is, krimpt hij 1 fractie (dus alle tegels evenveel) van de ingeleverde ruimte*/
     flex-shrink: 1;
-
-    /*Deze tegel is opzichzelf weer een flexbox*/
+    /*Deze tegel is op haar beurt weer een flexbox-container */
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
     padding: 40px;
     background-color: white;
     border: 1px solid #5722CD;
@@ -306,7 +307,7 @@ button:hover {
     width: 80px;
 }
 
-/* <----------------------------------------------- CONTACT --------------------------------------------------------->*/
+/* --------------- 4.5 Contact ------------------------ */
 
 #contact {
     background: #4B49E8;
@@ -316,14 +317,11 @@ button:hover {
     position: relative;
 }
 
-.contact-content {
-    padding: 100px 0 50px 0;
-}
-
 .contact-content__form {
     display: flex;
     flex-direction: column;
     text-align: left;
+    width: 100%;
 }
 
 .contact-content__form input,
@@ -355,34 +353,33 @@ button:hover {
     align-self: center;
 }
 
-/* <----------------------------------------------- FOOTER ---------------------------------------------------------->*/
+/* --------------- 4.6 Footer ------------------------- */
 
 #footer {
     background-color: black;
     color: white;
     text-align: center;
-    height: 64px;
+    padding: 20px 0;
     font-size: 14px;
 }
 
-/* <----------------------------------------------- MEDIA QUERIES --------------------------------------------------->*/
+/* ------------------------------- 5. Media Queries -------------------------------- */
+
 
 /*Omdat hier maar zo weinig media-queries nodig zijn is er gebruik gemaakt van een max-width query.*/
 /*Normaliter maak je altijd gebruik van min-width queries, waarbij de versie voor mobiel buiten de query staat, */
 /*en de versie voor desktop juist BUITEN de query*/
 @media screen and (max-width: 576px) {
-    /*big headers*/
     h1, h2 {
         font-size: 36px;
         padding: 16px 0;
     }
 
-    /*titel onderaan*/
     h3 {
         font-size: 26px;
     }
 
-    /*intro section*/
+
     h6 {
         font-size: 22px;
         line-height: 1.5;
@@ -398,21 +395,12 @@ button:hover {
         font-weight: 600;
     }
 
-    .intro-content::before {
-        font-size: 200px;
-        top: 0;
-    }
-
-    .work-content {
-        padding: 100px 0;
-    }
-
-    .intro-content p {
+    .intro__link {
         margin: 50px 0 0 0;
     }
 
     .work-article:nth-of-type(odd),
-    .work-article:nth-of-type(even) {
+    .work-article {
         flex-direction: column;
         margin: 0;
     }
@@ -428,7 +416,7 @@ button:hover {
         flex-basis: auto;
     }
 
-    .services-content {
+    #services > div {
         padding: 100px 0 50px 0;
     }
 }
