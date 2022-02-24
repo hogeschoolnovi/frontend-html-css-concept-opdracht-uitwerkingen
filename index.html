@@ -8,7 +8,7 @@
 </head>
 <body>
 <header id="header" class="outer-content-container">
-    <div class="inner-content-container inner-content-container--column header-content">
+    <div class="inner-content-container">
         <nav class="header-content__navigation">
             <ul>
                 <li><a href="#work">Case Studies</a></li>
@@ -17,35 +17,32 @@
             </ul>
         </nav>
 
-        <div class="header-content__hero default-content-restrictor">
+        <div class="header-content__hero default-text-restrictor">
             <h1>Your website is an investment in the success of your business.</h1>
             <p>We are here to help you succeed.</p>
             <button type="button">Let's work together</button>
         </div>
     </div>
-    <div class="header__squiggle"></div>
-    <div class="skewer skewer--white"></div>
+    <div class="skewer--bottom"></div>
 </header>
 <main>
     <section id="intro" class="outer-content-container">
-        <div class="inner-content-container inner-content-container--column">
-            <div class="intro-content default-content-restrictor">
-                <h6>
-                    Rekupe is a digital agency in Los Angeles.
-                </h6>
-                <h6>
-                    We use strategic UX, SEO optimization and beautiful visual designs to help your business grow.
-                </h6>
-                <h6>
-                    We see every project as a fresh opportunity, pushing ourselves to create new digital experiences.
-                </h6>
-                <p>Have a question? <a href="/">Click here</a> to contact us!</p>
-            </div>
+        <div class="inner-content-container default-area-padding default-text-restrictor">
+            <h6>
+                Rekupe is a digital agency in Los Angeles.
+            </h6>
+            <h6>
+                We use strategic UX, SEO optimization and beautiful visual designs to help your business grow.
+            </h6>
+            <h6>
+                We see every project as a fresh opportunity, pushing ourselves to create new digital experiences.
+            </h6>
+            <p class="intro__link">Have a question? <a href="/">Click here</a> to contact us!</p>
         </div>
-        <div class="skewer skewer--grey"></div>
     </section>
     <section id="work" class="outer-content-container">
-        <div class="inner-content-container work-content">
+        <div class="skewer--top"></div>
+        <div class="inner-content-container default-area-padding">
 
             <article class="work-article">
                 <span class="work-article__image-wrapper">
@@ -83,10 +80,12 @@
                 </div>
             </article>
         </div>
-        <div class="skewer skewer--white"></div>
+
+        <div class="skewer--bottom"></div>
+
     </section>
     <section id="services" class="outer-content-container">
-        <div class="inner-content-container services-content">
+        <div class="inner-content-container default-area-padding">
             <article class="service-tile">
                 <img src="./assets/icon_web-design.svg" alt="icon" class="service-tile__icon"/>
                 <h5 class="service-tile__title">Web Design</h5>
@@ -142,29 +141,27 @@
     </section>
 
     <section id="contact" class="outer-content-container">
-        <div class="skewer skewer--inverted skewer--white"></div>
+        <div class="skewer--top"></div>
 
-        <div class="inner-content-container inner-content-container--column">
-            <div class="default-content-restrictor contact-content">
-                <h2>Let's work together</h2>
-                <p>Have a question? Need a quote? Let us know!</p>
-                <form class="contact-content__form">
-                    <label for="name-field">
-                        Name
-                        <input type="text" id="name-field" name="name" placeholder="Name">
-                    </label>
-                    <label for="email-field">
-                        Email
-                        <input type="email" id="email-field" name="email" placeholder="Email">
-                    </label>
-                    <label for="message-field">
-                        Message
-                        <textarea name="message" id="message-field" cols="30" rows="10"
-                                  placeholder="Message"></textarea>
-                    </label>
-                    <button type="submit">Send</button>
-                </form>
-            </div>
+        <div class="inner-content-container default-text-restrictor default-area-padding">
+            <h2>Let's work together</h2>
+            <p>Have a question? Need a quote? Let us know!</p>
+            <form class="contact-content__form">
+                <label for="name-field">
+                    Name
+                    <input type="text" id="name-field" name="name" placeholder="Name">
+                </label>
+                <label for="email-field">
+                    Email
+                    <input type="email" id="email-field" name="email" placeholder="Email">
+                </label>
+                <label for="message-field">
+                    Message
+                    <textarea name="message" id="message-field" cols="30" rows="10"
+                              placeholder="Message"></textarea>
+                </label>
+                <button type="submit">Send</button>
+            </form>
         </div>
     </section>
 </main>
