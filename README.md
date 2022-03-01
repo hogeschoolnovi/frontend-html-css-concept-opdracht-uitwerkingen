@@ -3,20 +3,20 @@
 **Inhoudsopgave**
 
 1. [Inleiding](#inleiding)
-2. [Opdracht 1: opzet](#opdracht-1)
-3. [Opdracht 2: header en introductie](#opdracht-2)
-4. [Opdracht 3: projecten](#opdracht-3)
-5. [Opdracht 4: services](#opdracht-4)
-6. [Opdracht 5: contactformulier en footer](#-opdracht-5)
-7. [Bonusopdracht](#opdracht-bonus)
-8. [Schermontwerpen](#schermontwerpen)
-    1. [Basisontwerp](#schermontwerpen-basic)
-    2. [Bonusontwerp](#schermontwerpen-bonus)
-9. [Bijlage](#bijlage)
-    1. [CSS organisatie](#bijlage-css-organisatie)
-    2. [Dummy tekst](#bijlage-dummy-tekst)
+2. [Opdracht 1: opzet](#opdracht-1-opzet)
+3. [Opdracht 2: header en introductie](#opdracht-2-header-en-introductie)
+4. [Opdracht 3: projecten](#opdracht-3-projecten)
+5. [Opdracht 4: services](#opdracht-4-services)
+7. [Opdracht 5: contactformulier en footer](#opdracht-5-contactformulier-en-footer)
+8. [Bonusopdracht](#bonusopdracht)
+9. [Schermontwerpen](#schermontwerpen)
+    1. [Basisontwerp](#basisontwerp)
+    2. [Bonusontwerp](#bonusontwerp)
+10. [Bijlage](#bijlage)
+     1. [CSS structuur](#voorbeeld-css-structuur)
+     2. [Dummy tekst](#dummy-tekst)
 
-## Inleiding {#inleiding}
+## Inleiding
 
 Het is tijd om jouw CSS-skills in de praktijk te brengen: je gaat de home-pagina van een bekend bedrijf ontwikkelen. De
 designers van dit bedrijf hebben, naar aanleiding van hun huisstijl, alle schermontwerpen al helemaal uitgedacht. Het
@@ -36,7 +36,7 @@ EdHub (Hfst. 9).
 
 *Let op:* bovenstaand voorbeeld bevat bonus-opdracht elementen!
 
-## Opdracht 1: opzet {#opdracht-1}
+## Opdracht 1: opzet
 
 Je gaat het ontwerp van deze webpagina zometeen zo gedetailleerd mogelijk namaken. Alle afbeeldingen en icoontjes die
 worden gebruikt in de designs, zijn aangeleverd in de `assets`-map van deze repository.
@@ -50,7 +50,7 @@ rommeltje. Zorg daarom dat je onderstaande checklist afwerkt.
 - [ ] Maak een eigen project aan. Maak daarin ook alle benodigde bestanden aan, zoals een `index.html`, `styles.css`
   , `.gitignore`, een `README.md` en een mapje waar je alle benodigde afbeeldingen in zet die je hebt gedownload uit
   deze repository.
-- [ ] Zet alvast een structuur klaar in commentaar in jouw CSS-bestand. Je kunt [deze structuur](#bijlage-css-structuur)
+- [ ] Zet alvast een structuur klaar in commentaar in jouw CSS-bestand. Je kunt [deze structuur](#voorbeeld-css-structuur)
   gebruiken, maar uiteraard ben je vrij om iets soortgelijks te bedenken dat beter voor jou werkt.
 - [ ] Maak een repository aan op www.GitHub.com voor jouw project.
 - [ ] Initialiseer Git in jouw project. Maak een commit en koppel daarna jouw repository aan dit project volgens de
@@ -82,14 +82,14 @@ rommeltje. Zorg daarom dat je onderstaande checklist afwerkt.
     - Lichtgrijs `#F3F6F9` (voor de achtergrond van de projecten)
     - Grijs `#7A7A7A` (voor de service-tegel tekst);
 
-## Opdracht 2: header en introductie {#opdracht-2}
+## Opdracht 2: header en introductie
 
 Je gaat beginnen met het maken van de header en het introductieblok. Hiervoor heb je op voorhand bedacht welke
 semantische elementen je nodig zult hebben. Voel je je zelfverzekerd? Kijk dan alleen naar de aandachtspunten en volg
 jouw eigen plan! Als je meer houvast wil, bekijk dan eerst de aandachtspunten en werk daarna de volgende stappen af:
 
 1. Zet eerst, *zonder* styling, alle benodigde HTML-elementen voor deze twee blokken in jouw `index.html`. Omdat je hier
-   niet bent om je typediploma te halen, raden we je aan de [dummy tekst](#bijlage-dummy-tekst) te kopiëren!
+   niet bent om je typediploma te halen, raden we je aan de [dummy tekst](#dummy-tekst) te kopiëren!
 2. **Navigatiebalk**: zorg ervoor dat jouw menu-items netjes, naast elkaar, aan de rechterkant komen te staan. Maak het
    makkelijker voor jezelf door tijdelijk zwarte borders om jouw elementen te plaatsen, zodat je goed ziet wat je
    doet. *Pssst*: deze heb je al eens gemaakt in de eerdere Flexbox opdracht!
@@ -119,7 +119,7 @@ jouw eigen plan! Als je meer houvast wil, bekijk dan eerst de aandachtspunten en
   jouw klant (het bedrijf) zou ineens van gedachten kunnen veranderen! Gebruik altijd CSS om de tekst te transformeren
   naar hoofdletters.
 
-## Opdracht 3: projecten {#opdracht-3}
+## Opdracht 3: projecten
 
 Je kunt nu aan de slag met het project-blok. Bekijk het ontwerp nog eens goed, lees de aandachtspunten goed door en maak
 een duidelijk plan voor jezelf over hoe je dit gaat aanpakken.
@@ -165,7 +165,7 @@ img {
   Door `:nth-child(even)` te gebruiken op de containers, wordt alleen ieder 2e, 4e, 6e, ..., 24e element aangesproken:
   dus alle *even* getallen. Super handig wanneer er nog meer projecten bij komen!
 
-## Opdracht 4: services {#opdracht-4}
+## Opdracht 4: services
 
 Je kunt nu aan de slag met het services-blok. Bekijk het ontwerp nog eens goed, lees de aandachtspunten goed door en
 maak een duidelijk plan voor jezelf over hoe je dit gaat aanpakken.
@@ -179,7 +179,7 @@ maak een duidelijk plan voor jezelf over hoe je dit gaat aanpakken.
   met de `flex-basis`-property. Denk er ook aan of de tegels mogen meegroeien of mee krimpen wanneer de schermgrootte
   zich aanpast.
 
-## Opdracht 5: contactformulier en footer {#opdracht-5}
+## Opdracht 5: contactformulier en footer
 
 Je kunt nu aan de slag met het contact-formulier en de kleine zwarte footer. Bekijk het ontwerp nog eens goed, lees de
 aandachtspunten goed door en maak een duidelijk plan voor jezelf over hoe je dit gaat aanpakken.
@@ -193,7 +193,7 @@ aandachtspunten goed door en maak een duidelijk plan voor jezelf over hoe je dit
   formulier (of een ander omwikkelend element) bepalen hoe breed de velden moeten zijn.
 * *Tip*: je kunt placeholders stylen doormiddel van de `::placeholder`-selector!
 
-## Bonusopdracht {#opdracht-bonus}
+## Bonusopdracht
 
 1. Gebruik CSS-variabelen om de kleurcodes in op te slaan zodat je deze in jouw stylesheet kunt gebruiken.
 2. Zorg ervoor dat de lijnen tussen de verschillende secties schuin aflopen door een uitgerekte CSS driehoek toe te
@@ -212,25 +212,25 @@ aandachtspunten goed door en maak een duidelijk plan voor jezelf over hoe je dit
 
 ![bonus-moving-link](./assets/screenshots/bonus/bonus-moving-link.gif)
 
-## Schermontwerpen {#schermontwerpen}
+## Schermontwerpen
 
-### Basisontwerp {#schermontwerpen-basic}
+### Basisontwerp
 
 De screenshots zijn erg groot, dus je kunt ze het best downloaden en vervolgens ingezoomd bekijken:
 
 - [Desktop design](https://github.com/hogeschoolnovi/frontend-html-css-concept-opdracht/blob/master/assets/screenshots/basic/basic-desktop.png)
 - [Mobiel design](https://github.com/hogeschoolnovi/frontend-html-css-concept-opdracht/blob/master/assets/screenshots/basic/basic-mobiel.png)
 
-### Bonusontwerp {#schermontwerpen-bonus}
+### Bonusontwerp
 
 De screenshots zijn groot, dus je kunt ze het best downloaden en vervolgens ingezoomd bekijken:
 
 - [Desktop design](https://github.com/hogeschoolnovi/frontend-html-css-concept-opdracht/blob/master/assets/screenshots/bonus/bonus-desktop.png)
 - [Mobiel design](https://github.com/hogeschoolnovi/frontend-html-css-concept-opdracht/blob/master/assets/screenshots/bonus/bonus-mobiel.png)
 
-## Bijlage {#bijlage}
+## Bijlage
 
-### Voorbeeld CSS structuur {#bijlage-css-organisatie}
+### Voorbeeld CSS structuur
 
 ```css
 /*////////////////////////
@@ -266,7 +266,7 @@ De screenshots zijn groot, dus je kunt ze het best downloaden en vervolgens inge
 /* ------------------------------- 5. Media Queries -------------------------------- */
 ```
 
-### Dummy tekst {#bijlage-dummy-tekst}
+### Dummy tekst
 
 #### Your website is an investment in the success of your business.
 
